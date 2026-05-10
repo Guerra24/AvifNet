@@ -11,7 +11,7 @@
     <tags>libavif avif decoder encoder</tags>
   </metadata>
   <files>
-    <file src="../libavif/build-x64-windows/Release/avif.dll" target="runtimes/win-x64/native/" />
-    <file src="../libavif/build-ARM64-windows/Release/avif.dll" target="runtimes/win-arm64/native/" />
+    <file src="runtimes/win-x64/native/avif.dll" target="runtimes/win-x64/native/" />
+    <!--<file src="runtimes/win-arm64/nativeavif.dll" target="runtimes/win-arm64/native/" />-->
   </files>
 </package>

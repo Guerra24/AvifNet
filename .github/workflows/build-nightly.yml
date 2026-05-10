@@ -11,13 +11,10 @@ jobs:
       contents: read
     strategy:
       matrix:
-        arch: [x64-windows, arm64-windows]
+        arch: [x64-windows]
     steps:
     - name: Checkout
       uses: actions/checkout@v6
-      with:
-        submodules: recursive
-        fetch-depth: 2
     - name: Install nasm
       uses: ilammy/setup-nasm@72793074d3c8cdda771dba85f6deafe00623038b
     - name: Set up meson
@@ -47,10 +44,10 @@ jobs:
       uses: actions/download-artifact@v8
       with:
         path: libavif-dll
+        pattern: libavif-*
     - name: Publish nuget
       run: |
         Get-ChildItem -Path .\libavif-dll\libavif-x64-windows\*.dll -File -Recurse | Move-Item -Destination .\AvifNet.Natives\runtimes\win-x64\native
-        Get-ChildItem -Path .\libavif-dll\libavif-arm64-windows\*.dll -File -Recurse | Move-Item -Destination .\AvifNet.Natives\runtimes\win-arm64\native
         nuget pack .\AvifNet.Natives\Package.nuspec
         dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.actor }}/index.json"
         dotnet nuget push "$(Get-ChildItem *.nupkg)" -k ${{ secrets.GITHUB_TOKEN }} -s "github"
