@@ -1,0 +1,8 @@
+namespace AvifNet;
+
+public enum avifProgressiveState
+{
+    AVIF_PROGRESSIVE_STATE_UNAVAILABLE = 0,
+    AVIF_PROGRESSIVE_STATE_AVAILABLE,
+    AVIF_PROGRESSIVE_STATE_ACTIVE,
+}
