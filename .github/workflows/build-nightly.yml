@@ -50,7 +50,7 @@ jobs:
         pattern: libavif-*
     - name: Publish nuget
       run: |
-        Get-ChildItem -Path .\libavif-dll\libavif-x64-windows\*.dll -File -Recurse | Move-Item -Destination .\AvifNet.Natives\runtimes\win-x64\native
+        Get-ChildItem -Path .\libavif-dll\*.dll -File -Recurse | Move-Item -Destination .\AvifNet.Natives\runtimes\win-x64\native
         nuget pack .\AvifNet.Natives\Package.nuspec
         dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.actor }}/index.json"
         dotnet nuget push "$(Get-ChildItem *.nupkg)" -k ${{ secrets.GITHUB_TOKEN }} -s "github"
