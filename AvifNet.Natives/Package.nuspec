@@ -13,7 +13,7 @@
   <files>
     <file src="runtimes/win-x64/native/avif.dll" target="runtimes/win-x64/native/" />
     <!--<file src="runtimes/win-arm64/nativeavif.dll" target="runtimes/win-arm64/native/" />-->
-    <file src="runtimes/linux-x64/native/avif.so" target="runtimes/linux-x64/native/" />
-    <file src="runtimes/linux-arm64/native/avif.so" target="runtimes/linux-arm64/native/" />
+    <file src="runtimes/linux-x64/native/libavif.so" target="runtimes/linux-x64/native/" />
+    <file src="runtimes/linux-arm64/native/libavif.so" target="runtimes/linux-arm64/native/" />
   </files>
 </package>
